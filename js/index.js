@@ -43,9 +43,15 @@ cashArr.forEach((item,index)=>{
     <picture>
         <img src="${item.img}" alt="">
     </picture>
-
     <div class="input">
-        <input type="text" name="" maxlength="5" value="${item.number==0?"":item.number}" id="cashInput${index}" placeholder="Enter your num" oninput="calculate(${index})">
+        <input 
+  type="text" 
+  name=""  
+  value="${item.number == 0 ? '' : item.number}" 
+  id="cashInput${index}" 
+  placeholder="Enter your num" 
+  oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 5); calculate(${index})">
+
     </div>
     <div class="cash" id="cash${index}">
         ${item.cash}
